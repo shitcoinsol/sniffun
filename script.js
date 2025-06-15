@@ -19,7 +19,6 @@ function showResults(fromFloating) {
   document.getElementById("intro").style.display = "none";
   document.getElementById("results").classList.remove("hidden");
   document.getElementById("error-message").classList.add("hidden");
-  document.getElementById("floating-search")?.classList.remove("hidden");
   document.getElementById("floating-button")?.classList.remove("hidden");
   document.getElementById("recent-searches")?.classList.remove("hidden");
 
@@ -27,8 +26,11 @@ function showResults(fromFloating) {
 }
 
 function loadRecent(ca) {
-  document.getElementById("floatingInput").value = ca;
-  showResults(true);
+  const tokenInput = document.getElementById("tokenInput");
+  if (tokenInput) {
+    tokenInput.value = ca;
+  }
+  showResults();
 }
 
 function showError() {
@@ -46,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const isSearchResultsVisible = !document.getElementById('results')?.classList.contains('hidden');
 
   if (!isSearchResultsVisible) {
-    const idsToHide = ['floating-search', 'mobile-search', 'floating-button', 'recent-searches'];
+    const idsToHide = ['mobile-search', 'floating-button', 'recent-searches'];
     idsToHide.forEach(id => {
       const el = document.getElementById(id);
       if (el && !el.classList.contains('hidden')) {
