@@ -52,13 +52,13 @@ window.addEventListener('DOMContentLoaded', () => {
       if (el && !el.classList.contains('hidden')) {
         el.classList.add('hidden');
       }
+    });
 
-  // Also hide the left project info box on main page
-  const infoBox = document.getElementById('project-info');
-  if (!isSearchResultsVisible && infoBox) {
-    infoBox.style.display = 'none';
-  }
+    // Also hide the left project info box on main page
+    const infoBox = document.getElementById('project-info');
+    if (!isSearchResultsVisible && infoBox) {
+      infoBox.style.display = 'none';
+    }
 
-});
   }
 });
